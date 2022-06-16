@@ -32,10 +32,10 @@ class ProfileTest extends TestCase
      */
     public function can_see_help_text()
     {
-        Livewire::test(Profile::class)
+        Livewire::test(Profile::class)     // carico il component Livewire
             ->assertDontSee('Lorem ipsum') // inialmente $showHelp=false
             ->set('showHelp', true)        // dopo che $showHelp=true compare il testo
-            ->assertSee('Lorem ipsum');
+            ->assertSee('Stò impostando il metodo updated pe');
     }
 
     /**
@@ -47,10 +47,10 @@ class ProfileTest extends TestCase
     {
         $this->actingAs(User::first());
 
-        Livewire::test(Profile::class)
+        Livewire::test(Profile::class)                // carico il component Livewire
             ->set('user.name', auth()->user()->name)
-            ->set('user.email', 'new@email.com')
-            ->call('updateprofile');
+            ->set('user.email', 'new@email.com')      // modifico il campo email
+            ->call('updateprofile');                  // salvo i dati
 
         $this->assertTrue(User::where('email', 'new@email.com')->exists());
     }
