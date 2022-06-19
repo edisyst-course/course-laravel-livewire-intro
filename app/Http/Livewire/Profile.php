@@ -8,7 +8,7 @@ use Livewire\Component;
 class Profile extends Component
 {
     public $success = false;
-    public $user;
+    public User $user;
     public $showHelp = false; // lo setto direttamente con $toggle, $set senza bisogno di creare il metodo apposito
 
     protected $rules = [
@@ -16,7 +16,7 @@ class Profile extends Component
         'user.email' => 'email',
     ];
 
-    public function mount()
+    public function mount() // è una sorta di __construct
     {
         $this->user = auth()->user();
     }
@@ -38,7 +38,7 @@ class Profile extends Component
     }
 
 //    public function updated($name, $value)
-    public function updatedUserName($value) // Livewire Hooks: si agganciano a degli eventi (es:update)
+    public function updatedUserName($value) // Livewire Hooks: si agganciano a degli eventi (es:updated)
     {
         $this->validateOnly('user.name'); // le rules posso anche scriverle direttamente qui dentro
     }

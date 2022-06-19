@@ -26,7 +26,7 @@ class ChangePasswordController extends Controller
             ->with('message', __('global.change_password_success'));
     }
 
-    public function updateProfile(UpdateProfileRequest $request)
+    public function updateProfile(UpdateProfileRequest $request) // forse non viene mai usata
     {
         auth()->user()->update($request->validated());
 

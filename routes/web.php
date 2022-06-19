@@ -10,11 +10,11 @@ Route::group([
     'namespace' => 'Auth',
     'middleware' => ['auth']
 ], function () {
-    Route::get('password', 'ChangePasswordController@edit')
+    Route::get('password', [\App\Http\Controllers\Auth\ChangePasswordController::class, 'edit'])
         ->name('password.edit');
-    Route::post('password', 'ChangePasswordController@update')
+    Route::post('password', [\App\Http\Controllers\Auth\ChangePasswordController::class, 'update'])
         ->name('password.update');
-    Route::post('profile', 'ChangePasswordController@updateProfile')
+    Route::post('profile', [\App\Http\Controllers\Auth\ChangePasswordController::class, 'updateProfile'])
         ->name('password.updateProfile');
 });
 

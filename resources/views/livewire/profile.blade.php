@@ -44,9 +44,9 @@
 
         <button type="button" wire:click="$toggle('showHelp')">Show/hide help section</button>
         @if ($showHelp)
-            <div class="alert alert-info">
-                Stò impostando il metodo updated per validare "in tempo reale" solo user.name, non user.email.
-                A ogni salvataggio aumenta il counter delle notifiche grazie a $this->emit('profileUpdated')
+            <div class="alert alert-info mt-2">
+                Stò impostando il metodo updated per validare "in tempo reale" solo user.name, non user.email <br>
+                Ad ogni salvataggio aumenta il counter delle notifiche grazie a $this->emit('profileUpdated') <br>
                 Oppure ad esempio lo triggero con wire:click="$emit('profileUpdated')"
             </div>
         @endif
